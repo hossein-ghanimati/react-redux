@@ -1,9 +1,12 @@
-import { useCallback } from "react"
+import { useCallback, useState } from "react"
 import "../assets/styles/counter.css"
 import counterStore from "@/assets/redux/counter/counterStore"
 import { decrementCreator, incrementCreator, resetCreator } from "@/assets/redux/counter/counterActionsCreator"
 
 const Home = () => {
+  const [, reRender] = useState({});
+
+  counterStore.subscribe(() => reRender({}))
 
   const reset = useCallback(() => 
     counterStore.dispatch(resetCreator())
