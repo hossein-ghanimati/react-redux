@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react"
 import "../assets/styles/counter.css"
-import counterStore from "@/assets/redux/counter/counterStore"
+import counterStore from "@/assets/redux/store"
 import { decrementCreator, incrementCreator, resetCreator } from "@/assets/redux/counter/counterActionsCreator"
 
 const Home = () => {
@@ -20,7 +20,7 @@ const Home = () => {
 
   return (
     <div className="container">
-      <h1 id="num">{counterStore.getState()}</h1>
+      <h1 id="num">{counterStore.getState().count}</h1>
       <div className="btns">
         <button className="dec" onClick={decrement}>
           <i className="fas fa-minus"></i>

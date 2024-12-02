@@ -1,5 +1,4 @@
-import { CounterActionsType } from "@/assets/types/redux/counter/counterActions.type";
-
+import { CounterActionsType } from "@/assets/types/redux/counter/counterActions.type"
 const counterReducer = (state = 0, action: CounterActionsType) => {
   switch (action.type) {
     case "INCREMENT":
