@@ -1,7 +1,7 @@
 
 import React, { memo, useContext } from "react";
 
-import "./assets/styles/tailwind/output/output.css";
+// import "./assets/styles/tailwind/output/output.css";
 import { ThemeContext } from "./assets/contexts/share/theme.context";
 import AppContent from "./AppContent";
 
