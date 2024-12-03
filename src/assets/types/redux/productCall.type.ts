@@ -1,3 +1,12 @@
-export type StartGetProductsType = "START_GET_PRODUCTS"
-export type GetProductsType =  "GET_PRODUCTS"
-export type CreateErrorType =  "CREATE_ERROR"
+export type StartGetProductsType = {
+  type: "START_GET_PRODUCTS";
+  url: string;
+}
+export type GetProductsType =  {
+  type: "GET_PRODUCTS";
+  payload: any
+}
+export type CreateErrorType =  {
+  type: "CREATE_ERROR",
+  payload: any
+}

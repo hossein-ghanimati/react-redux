@@ -1,3 +1,4 @@
+import { CreateErrorType, GetProductsType, StartGetProductsType } from "@/assets/types/redux/productCall.type"
 import { TodoActionsType } from "@/assets/types/redux/todo/todoActions.type"
 
 
@@ -20,8 +21,24 @@ const doTodoCreator = (id: string) : TodoActionsType & {
   id
 })
 
+const startGetProductCreator = (url: string): StartGetProductsType => ({
+  type: "START_GET_PRODUCTS",
+  url
+})
+const getProductsCreator = (products: any): GetProductsType => ({
+  type: "GET_PRODUCTS",
+  payload: products
+})
+const errorCreator = (products: any): CreateErrorType => ({
+  type: "CREATE_ERROR",
+  payload: products
+})
+
 export {
   addTodoCreator,
   removeTodoCreator,
-  doTodoCreator
+  doTodoCreator,
+  getProductsCreator,
+  errorCreator,
+  startGetProductCreator
 }
