@@ -1,13 +1,13 @@
 import { TodoActionsType } from "@/assets/types/redux/todo/todoActions.type"
 
-const todoReducer = (state: number = 0, action: TodoActionsType): number => {
+const todoReducer = (state = [], action: TodoActionsType) => {
   switch (action.type) {
     case "ADD_TODO":
-      return state + 1
+      return [...state, "Add"]
     case "REMOVE_TODO":
-      return state - 1
+      return [...state, "Remove"]
     case "DO_TODO":
-      return 0
+      return [...state, "Do"]
   
     default:
       return state
