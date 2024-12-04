@@ -8,7 +8,11 @@ import { getProductsCreator, startGetProductCreator } from "./todo/todoActionsCr
 
 import {thunk} from "redux-thunk"
 import sendApiReq from "../services/axios/configs/apiReq"
-import logger from 'redux-logger'
+import {createLogger} from 'redux-logger'
+
+const logger = createLogger({
+  level: "warn",
+})
 
 const store = createStore(
   combineReducers({
