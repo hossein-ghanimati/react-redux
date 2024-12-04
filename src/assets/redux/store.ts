@@ -1,13 +1,14 @@
 import { applyMiddleware, combineReducers, createStore } from "redux"
 import todoReducer from "./todo/todoReducer"
 import counterReducer from "./counter/counterReducer"
-import logger from "./middleWares/logger"
+// import logger from "./middleWares/logger"
 import { configureStore } from "@reduxjs/toolkit"
 import productCall from "./middleWares/productsCall"
 import { getProductsCreator, startGetProductCreator } from "./todo/todoActionsCreator"
 
 import {thunk} from "redux-thunk"
 import sendApiReq from "../services/axios/configs/apiReq"
+import logger from 'redux-logger'
 
 const store = createStore(
   combineReducers({
