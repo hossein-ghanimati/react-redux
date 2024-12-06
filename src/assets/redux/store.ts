@@ -21,7 +21,6 @@ const store = createStore(
   }),
   applyMiddleware(thunk, logger)
 )
-store.subscribe(() => console.log(store.getState()))
 
 store.dispatch(getProductsCreator([1, 2]))
 
