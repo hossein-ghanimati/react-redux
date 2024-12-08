@@ -1,4 +1,4 @@
-import { applyMiddleware, combineReducers, createStore } from "redux"
+import { applyMiddleware, combineReducers, legacy_createStore } from "redux"
 import todoReducer from "./todo/todoReducer"
 import counterReducer from "./counter/counterReducer"
 // import logger from "./middleWares/logger"
@@ -14,7 +14,7 @@ const logger = createLogger({
   level: "warn",
 })
 
-const store = createStore(
+const store = legacy_createStore(
   combineReducers({
     todos: todoReducer,
     count: counterReducer
