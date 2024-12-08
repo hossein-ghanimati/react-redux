@@ -1,35 +1,19 @@
-import { applyMiddleware, combineReducers, legacy_createStore } from "redux"
-import todoReducer from "./todo/todoReducer"
-import counterReducer from "./counter/counterReducer"
-// import logger from "./middleWares/logger"
-import { getProductsCreator } from "./todo/todoActionsCreator"
+import { applyMiddleware, combineReducers, legacy_createStore } from "redux";
+import todoReducer from "./todo";
+import { composeWithDevTools } from '@redux-devtools/extension';
+import { thunk } from "redux-thunk";
+import { TodoType } from "../types/share/todo.type";
+import { InitialType, TodoActionTypes } from "../types/redux/todo.type";
 
-import {thunk} from "redux-thunk"
-import sendApiReq from "../services/axios/configs/apiReq"
-import {createLogger} from 'redux-logger'
-
-import { composeWithDevTools } from "@redux-devtools/extension"
-
-const logger = createLogger({
-  level: "warn",
-})
+const rootReducer = combineReducers({
+  todos: todoReducer,
+});
 
 const store = legacy_createStore(
-  combineReducers({
-    todos: todoReducer,
-    count: counterReducer
-  }),
+  rootReducer,
   composeWithDevTools(
-    applyMiddleware(thunk, logger)
+    applyMiddleware(thunk)
   )
 )
-
-store.dispatch(getProductsCreator([1, 2]))
-
-store.dispatch(async (dispatch) => {
-  const response = await sendApiReq()("/todos");
-  dispatch(getProductsCreator(response.data))
-})
-
 
 export default store
