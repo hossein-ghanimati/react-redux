@@ -5,6 +5,7 @@ import AppWrapper from "./AppWrapper";
 import { Provider } from "react-redux";
 import store from "./assets/redux/store";
 
+
 const ProjectRoot = ReactDOM.createRoot(document.getElementById("root")!)
 const Template = (
   <HashRouter>
