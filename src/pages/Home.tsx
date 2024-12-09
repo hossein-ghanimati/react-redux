@@ -1,24 +1,28 @@
+import TodoList from "@/assets/components/todoList";
+import "./App.css"
+const Home = () => (
+  <>
+    <header>
+      <h1>Sabzlearn To Do List</h1>
+    </header>
+    <form action="">
+      <input type="text" className="todo-input" />
+      <button className="todo-button" type="submit">
+        <i className="fas fa-plus-circle fa-lg"></i>
+      </button>
+      <div className="select">
+        <select name="todos" className="filter-todo">
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="incomplete">Incomplete</option>
+        </select>
+      </div>
+    </form>
 
-import { addTodoAction } from "@/assets/redux/todo";
-import { createTodoData } from "@/assets/ts/todo";
-import { RootStates } from "@/assets/types/redux/sotre";
-import {  useDispatch, useSelector } from "react-redux"
+    <div className="todo-container">
+      <TodoList/>
+    </div>
+  </>
+);
 
-
-const Home = () => {
-  const dispatch = useDispatch();
-  const todos = useSelector((states: RootStates) => states.todos)
-
-  const addTodo = () =>
-    dispatch(addTodoAction(createTodoData()))
-  
-  return <div onClick={addTodo}>
-    {
-      todos.length
-    }
-  </div>
-}
-
-
-
-export default Home
+export default Home;
