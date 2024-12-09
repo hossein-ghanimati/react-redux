@@ -1,29 +1,24 @@
+
 import { addTodoAction } from "@/assets/redux/todo";
 import { createTodoData } from "@/assets/ts/todo";
-import { TodoType } from "@/assets/types/share/todo.type"
-import { connect, DispatchProp } from "react-redux"
-import { Dispatch, UnknownAction } from "redux";
+import { RootStates } from "@/assets/types/redux/sotre";
+import {  useDispatch, useSelector } from "react-redux"
 
-type HomeProps = {
-  todos: TodoType[];
-} & DispatchProp<UnknownAction> & {
-  addTodo: () => void;
-}
-const Home = (props: HomeProps) => {
-  console.log(props)
+
+const Home = () => {
+  const dispatch = useDispatch();
+  const todos = useSelector((states: RootStates) => states.todos)
+
+  const addTodo = () =>
+    dispatch(addTodoAction(createTodoData()))
   
-  return <div onClick={props.addTodo}>
-dsfgsdfg
+  return <div onClick={addTodo}>
+    {
+      todos.length
+    }
   </div>
 }
 
-const mapStateToProps = (state: {todos: TodoType[]}) => ({
-  todos: state.todos
-})
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  addTodo: () => 
-    dispatch(addTodoAction(createTodoData()))
-})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default Home
