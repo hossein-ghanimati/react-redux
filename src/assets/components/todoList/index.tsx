@@ -1,6 +1,6 @@
 import { removeTodoAction, toggleTodoAction } from '@/assets/redux/todo';
 import { RootStates } from '@/assets/types/redux/sotre.type';
-import React, { useCallback } from 'react'
+import { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 const TodoList = () => {

@@ -3,6 +3,7 @@ import todoReducer from "./todo";
 import { composeWithDevTools } from '@redux-devtools/extension';
 import { thunk } from "redux-thunk";
 import filterModeReducer from "./filterMode";
+import logger from "redux-logger";
 
 
 const rootReducer = combineReducers({
@@ -14,7 +15,7 @@ const rootReducer = combineReducers({
 const store = legacy_createStore(
   rootReducer,
   composeWithDevTools(
-    applyMiddleware(thunk)
+    applyMiddleware(thunk, logger)
   )
 )
 

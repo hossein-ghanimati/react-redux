@@ -18,9 +18,10 @@ export type CompletedAction = {
 
 export type InCompletedAction = {
   type: typeof INCOMPLETED;
-  payload: "incompleted"
+  payload: "inCompleted"
 }
 
-export type FilterTypes = "all" | "completed" | "incompleted"
+
+export type FilterTypes = "all" | "completed" | "inCompleted"
 export type filterActionTypes = AllAction | CompletedAction | InCompletedAction
 

@@ -1,4 +1,4 @@
-import { filterActionTypes, FilterTypes } from "../types/redux/filterMode.type";
+import { AllAction, CompletedAction, filterActionTypes, FilterTypes, InCompletedAction } from "../types/redux/filterMode.type";
 
 
 const filterModeReducer = (state: FilterTypes = "all", action: filterActionTypes): FilterTypes => {
@@ -20,6 +20,33 @@ const filterModeReducer = (state: FilterTypes = "all", action: filterActionTypes
   }
 
   return currentState
+}
+
+const setAllAction = (): AllAction => ({
+  type: "ALL",
+  payload: "all"
+})
+const setCompletedAction = (): CompletedAction => ({
+  type: "COMPLETED",
+  payload: "completed"
+})
+const setInCompletedAction = (): InCompletedAction => ({
+  type: "INCOMPLETED",
+  payload: "inCompleted"
+})
+
+export const exportMainAction = (filterType: FilterTypes ) => {
+  switch (filterType) {
+    case "all":
+      return setAllAction
+    case "completed":
+      return setCompletedAction
+    case "inCompleted":
+      return setInCompletedAction
+  
+    default:
+      return setAllAction;
+  }
 }
 
 export default filterModeReducer;
