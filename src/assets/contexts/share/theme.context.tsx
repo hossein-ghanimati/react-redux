@@ -11,11 +11,11 @@ type ThemeContextType = {
 
 const ThemeContext = createContext<ThemeContextType | null>(null);
 const ThemeContextProvider: FC<PropsWithChildren> = memo(({children}) => {
-  const initTheme = getFromLocal("theme") === "dark" ? true : false;
+  // const initTheme = getFromLocal("theme") === "dark" ? true : false;
   console.log("init theme", getFromLocal("theme"));
   
 
-  const [isDark, setIsDark] = useState(initTheme)
+  const [isDark, setIsDark] = useState(false)
   
   const changToDark = () => {
     setIsDark(true)

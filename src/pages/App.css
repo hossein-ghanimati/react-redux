@@ -155,3 +155,9 @@ select {
   background: white;
   color: rgb(255, 200, 0);
 }
+
+
+.placeholder\:text-red-500::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}

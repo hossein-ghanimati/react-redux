@@ -11,7 +11,6 @@
       text-base 
       select-none
     ;
-    direction: rtl
   }
 
   ::-webkit-scrollbar-track,
