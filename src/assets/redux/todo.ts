@@ -25,17 +25,17 @@ const todoReducer = (state: InitialType | undefined = [], action: TodoActionType
 }
 
 
-export const addTodo = (newTodo: TodoType): AddTodoAction => ({
+export const addTodoAction = (newTodo: TodoType): AddTodoAction => ({
   type: ADD_TODO,
   payload: newTodo,
 });
 
-export const toggleTodo = (id: string): ToggleTodoAction => ({
+export const toggleTodoAction = (id: string): ToggleTodoAction => ({
   type: TOGGLE_TODO,
   payload: id,
 });
 
-export const removeTodo = (id: string): RemoveTodoAction => ({
+export const removeTodoAction = (id: string): RemoveTodoAction => ({
   type: REMOVE_TODO,
   payload: id,
 });

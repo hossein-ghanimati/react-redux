@@ -2,7 +2,6 @@ import { applyMiddleware, combineReducers, legacy_createStore } from "redux";
 import todoReducer from "./todo";
 import { composeWithDevTools } from '@redux-devtools/extension';
 import { thunk } from "redux-thunk";
-import { TodoType } from "../types/share/todo.type";
 
 
 const rootReducer = combineReducers({
