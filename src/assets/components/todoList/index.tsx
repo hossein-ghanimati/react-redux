@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux'
 const TodoList = () => {
   const dispatch = useDispatch();
   const todos = useSelector((states: RootStates) => states.todos)
-  console.log(todos);
   
   const removeTodo = useCallback((id: string) => (
     dispatch(
@@ -27,7 +26,7 @@ const TodoList = () => {
     <ul className="todo-list">
       {
         todos.map(todo => 
-          <li className='todo-item'>
+          <li key={todo.id} className='todo-item'>
             {todo.text}
             <button className="complete" onClick={() => toggleTodo(todo.id)}>
               Complete

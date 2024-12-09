@@ -4,7 +4,15 @@ const ADD_TODO = 'ADD_TODO';
 const TOGGLE_TODO = 'TOGGLE_TODO';
 const REMOVE_TODO = 'REMOVE_TODO';
 
-export type InitialType = TodoType[]
+export type InitialStatesType = {
+  todos: TodoType[];
+  filteredTodos: TodoType[]
+}
+
+export type SetFilteredTodosAction = {
+  type: typeof ADD_TODO;
+  payload: TodoType[]; 
+}
 
 export type AddTodoAction = {
   type: typeof ADD_TODO;
@@ -21,7 +29,7 @@ export type RemoveTodoAction = {
   payload: string; 
 }
 
-export type TodoActionTypes = AddTodoAction | ToggleTodoAction | RemoveTodoAction
+export type TodoActionTypes = AddTodoAction | ToggleTodoAction | RemoveTodoAction | SetFilteredTodosAction
 
 export {
   ADD_TODO,

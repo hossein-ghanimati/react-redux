@@ -1,9 +1,14 @@
-import { ADD_TODO, AddTodoAction, InitialType, REMOVE_TODO, RemoveTodoAction, TodoActionTypes, TOGGLE_TODO, ToggleTodoAction } from "../types/redux/todo.type";
+import { ADD_TODO, InitialStatesType,  AddTodoAction, REMOVE_TODO, RemoveTodoAction, TodoActionTypes, TOGGLE_TODO, ToggleTodoAction } from "../types/redux/todo.type";
 import { TodoType } from "../types/share/todo.type";
 
+const initialStates: InitialStatesType = {
+  todos: [],
+  filteredTodos: []
+}
 
-
-const todoReducer = (state: InitialType | undefined = [], action: TodoActionTypes) => {
+const todoReducer = (state = initialStates, action: TodoActionTypes) => {
+  const todosCopy = [...initialStates.todos];
+  const filteredTodosCopy = [...initialStates.filteredTodos];
   switch (action.type) {
     case ADD_TODO:
       return [...state, action.payload]
